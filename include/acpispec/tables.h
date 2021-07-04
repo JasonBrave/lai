@@ -25,9 +25,17 @@ extern "C" {
 #define ACPI_ENABLED            0x0001
 #define ACPI_SLEEP            0x2000
 
-#define ACPI_GAS_MMIO            0
-#define ACPI_GAS_IO            1
-#define ACPI_GAS_PCI            2
+#define ACPI_GAS_MMIO          0x00
+#define ACPI_GAS_IO            0x01
+#define ACPI_GAS_PCI           0x02
+#define ACPI_GAS_EC            0x03
+#define ACPI_GAS_SMBUS         0x04
+#define ACPI_GAS_CMOS          0x05
+#define ACPI_GAS_PCIBAR        0x06
+#define ACPI_GAS_IPMI          0x07
+#define ACPI_GAS_GPIO          0x08
+#define ACPI_GAS_SERIAL        0x09
+#define ACPI_GAS_PCC           0x0a
 
 // OpRegion Address Spaces
 #define ACPI_OPREGION_MEMORY			0x00
