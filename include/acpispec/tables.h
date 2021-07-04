@@ -201,6 +201,28 @@ typedef struct acpi_fadt_t
 #define ACPI_FADT_IAPC_BOOT_FLAGS_PCIE_ASPM_CONTROLS (1 << 4)
 #define ACPI_FADT_IAPC_BOOT_FLAGS_CMOS_RTC_NOT_PRESENT (1 << 5)
 
+typedef struct acpi_facs_t {
+	uint32_t signature; // 'FACS'
+	uint32_t length;
+	uint32_t hardware_signature;
+	uint32_t firmware_waking_vector;
+	uint32_t global_lock;
+	uint32_t flags;
+	uint64_t x_firmware_waking_vector;
+	uint8_t version;
+	uint8_t reserved[3];
+	uint32_t ospm_flags;
+	uint8_t reserved2[24];
+}__attribute__((packed)) acpi_facs_t;
+
+#define ACPI_FACS_FLAGS_S4BIOS_F (1 << 0)
+#define ACPI_FACS_FLAGS_64BIT_WAKE_SUPPORTED_F (1 << 1)
+
+#define ACPI_FACS_OSPM_FLAGS_64BIT_WAKE_F (1 << 0)
+
+#define ACPI_FACS_GLOBAL_LOCK_PENDING (1 << 0)
+#define ACPI_FACS_GLOBAL_LOCK_OWNED (1 << 1)
+
 typedef struct acpi_ecdt_t {
     acpi_header_t header;
     acpi_gas_t ec_control;
